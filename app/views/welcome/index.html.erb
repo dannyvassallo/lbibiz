@@ -1,0 +1,22 @@
+<main>
+  <div class="row">
+    <% @results.each do |result| %>
+      <div class="col s3">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img style="height: 340px; width: auto;" class="activator" src="<%= result["photos"] %>">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%= result["name"] %><i class="material-icons right">more_vert</i></span>
+            <p><a href="#"><%= result["address"] %></a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= result["name"] %><i class="material-icons right">close</i></span>
+            <%= result["phone_number"] %>
+            <%= result["coords"] %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>
