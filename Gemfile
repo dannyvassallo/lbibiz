@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'google_places'
 gem 'httparty'
 gem 'materialize-sass'
+gem "figaro"
 
 
 # Use ActiveModel has_secure_password

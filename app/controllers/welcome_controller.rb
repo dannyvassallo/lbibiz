@@ -1,8 +1,11 @@
 class WelcomeController < ApplicationController
   def index
-    @api_key = ""
+    @api_key = [
+      ENV["places_api_key_1"],
+      ENV["places_api_key_2"]
+    ].sample
     @client = GooglePlaces::Client.new(@api_key)
-    @query_results = @client.spots_by_query('Pizza in long beach island new jersey')
+    @query_results = @client.spots_by_query('Food in long beach island new jersey')
     @results = @query_results.map do |result|
       # if result.type
       #   meal_delivery
@@ -13,7 +16,7 @@ class WelcomeController < ApplicationController
         photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo}&key=#{@api_key}"
         photo = photo_url
       else
-        photo = nil
+        photo = "//placehold.it/640/640"
       end
 
       {
